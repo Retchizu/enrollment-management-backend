@@ -1,0 +1,22 @@
+Table students {
+  id integer [primary key]
+  first_name varchar
+  last_name varchar
+  email varchar
+  address varchar
+ }
+
+ Table courses {
+  id integer [primary key]
+  name varchar
+  description varchar
+ }
+
+ Table enrollment {
+  id integer [primary key]
+  student_id integer [not null]
+  course_id integer [not null]
+ }
+
+ Ref: enrollment.student_id > students.id
+ Ref: enrollment.course_id > courses.id
