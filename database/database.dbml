@@ -1,14 +1,14 @@
 Table students {
   id integer [primary key]
-  first_name varchar
-  last_name varchar
-  email varchar
+  first_name varchar [not null]
+  last_name varchar [not null]
+  email varchar [unique]
   address varchar
  }
 
  Table courses {
   id integer [primary key]
-  name varchar
+  name varchar [not null]
   description varchar
  }
 
