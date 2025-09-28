@@ -35,8 +35,8 @@ class CourseController extends Controller
         //
         try {
             $validated = $request->validate([
-                'name' => ['required', 'unique'],
-                'description' => 'required',
+                'name' => ['required', 'unique:courses'],
+                'description' => 'sometimes',
 
             ]);
 
@@ -91,8 +91,8 @@ class CourseController extends Controller
         //
         try {
             $validated = $request->validate([
-                'name' => ['required', 'unique'],
-                'description' => 'required',
+                'name' => ['sometimes', 'unique:courses'],
+                'description' => 'sometimes',
 
             ]);
 

@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Enrollment extends Model
 {
     //
+    protected $table = 'enrollment';
+    protected $fillable = ['course_id', 'student_id'];
     public function students(): BelongsTo 
     {
         return $this -> belongsTo(Student::class);

@@ -47,7 +47,7 @@ class StudentController extends Controller
 
             return response()->json([
                 'message' => 'Student created sccessfully',
-                'items' => $student
+                'item' => $student
             ], 201);
         } catch (ValidationException $e) {
             return response()->json([
