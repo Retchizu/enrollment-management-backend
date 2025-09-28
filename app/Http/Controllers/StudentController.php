@@ -17,7 +17,7 @@ class StudentController extends Controller
     {
         //
         $students = Student::all();
-        return response()->json(['data' => $students], 200);
+        return response()->json(['items' => $students], 200);
     }
 
     /**
@@ -47,7 +47,7 @@ class StudentController extends Controller
 
             return response()->json([
                 'message' => 'Student created sccessfully',
-                'data' => $student
+                'items' => $student
             ], 201);
         } catch (ValidationException $e) {
             return response()->json([
@@ -67,7 +67,7 @@ class StudentController extends Controller
             //code...
             $student = Student::findOrFail($id);
 
-            return response()->json(['data' => $student], 200);
+            return response()->json(['item' => $student], 200);
         } catch (ModelNotFoundException $e) {
             return response()->json([
                 'message' => 'Student not found'
@@ -105,7 +105,7 @@ class StudentController extends Controller
 
             return response()->json([
                 'message' => 'Student updated successfully.',
-                'data' => $student,
+                'item' => $student,
             ], 200);
         } catch (ValidationException $e) {
             return response()->json([

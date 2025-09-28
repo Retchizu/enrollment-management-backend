@@ -16,7 +16,7 @@ class EnrollmentController extends Controller
     {
         //
         $enrollments = Enrollment::all();
-        return response()->json(['data' => $enrollments], 200);
+        return response()->json(['items' => $enrollments], 200);
     }
 
     /**
@@ -44,7 +44,7 @@ class EnrollmentController extends Controller
             $enrollment = Enrollment::create($validated);
             return response()->json([
                 'message' => 'Enrollment created successfully',
-                'data' => $enrollment,
+                'items' => $enrollment,
             ], 200);
         } catch (ValidationException $e) {
             return response()->json([
@@ -65,7 +65,7 @@ class EnrollmentController extends Controller
             $enrollment = Enrollment::findOrFail($id);
 
             return response()->json([
-                'data' => $enrollment,
+                'item' => $enrollment,
             ]);
         } catch (ModelNotFoundException $e) {
             return response()->json([
@@ -100,7 +100,7 @@ class EnrollmentController extends Controller
 
             return response()->json([
                 'message' => 'Enrollment updated successfully.',
-                'data' => $enrollment,
+                'item' => $enrollment,
             ], 200);
         } catch (ValidationException $e) {
             return response()->json([

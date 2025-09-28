@@ -16,7 +16,7 @@ class CourseController extends Controller
     {
         //
         $courses = Course::all();
-        return response()->json(['data' => $courses], 200);
+        return response()->json(['items' => $courses], 200);
     }
 
     /**
@@ -43,7 +43,7 @@ class CourseController extends Controller
             $course = Course::create($validated);
             return response()->json([
                 'message' => 'Course created successfully',
-                'data' => $course,
+                'item' => $course,
             ], 200);
         } catch (ValidationException $e) {
             return response()->json([
@@ -65,7 +65,7 @@ class CourseController extends Controller
             $course = Course::findOrFail($id);
 
             return response()->json([
-                'data' => $course,
+                'item' => $course,
             ]);
         } catch (ModelNotFoundException $e) {
             return response()->json([
@@ -101,7 +101,7 @@ class CourseController extends Controller
 
             return response()->json([
                 'message' => 'Course updated successfully.',
-                'data' => $course,
+                'item' => $course,
             ], 200);
         } catch (ValidationException $e) {
             return response()->json([
